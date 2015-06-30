@@ -7,4 +7,4 @@ rescue LoadError
 end
 
 require 'vagrant/rubymine/plugin'
-require 'vagrant/rubymine/command'
+require 'vagrant/rubymine/middleware'

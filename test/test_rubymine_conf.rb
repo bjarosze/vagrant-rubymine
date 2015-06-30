@@ -31,7 +31,7 @@ class RubymineConfTest < Test::Unit::TestCase
 
   def test_getting_project_paths
     project_paths = @rubymine_conf.projects_paths
-    assert_equal 'C:\\Users\\Bartosz\\Development\\workspace\\merca', project_paths['merca']
+    assert_equal 'c:\\users\\bartosz\\development\\workspace\\merca', project_paths['merca']
   end
 
   def test_normalization

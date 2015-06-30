@@ -26,7 +26,7 @@ module Vagrant
         conf.xpath("/application/component[@name='RecentDirectoryProjectsManager']/option[@name='recentPaths']/list/option").inject({}) do |result, option|
           project_path = option.xpath('@value').map(&:value).first
           project_name = project_path.split('\\').last
-          result[normalize_project_name(project_name)] = project_path
+          result[normalize_project_name(project_name)] = project_path.downcase
           result
         end
       end

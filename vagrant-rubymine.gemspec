@@ -6,11 +6,11 @@ require 'vagrant/rubymine/version'
 Gem::Specification.new do |spec|
   spec.name          = 'vagrant-rubymine'
   spec.version       = Vagrant::Rubymine::VERSION
-  spec.authors       = ['Bartosz Jaroszewski']
+  spec.authors       = ['bjarosze']
   spec.email         = ['b.jarosze@gmail.com']
-  spec.summary       = 'Creates guest environment variables with paths to projects.'
-  spec.description   = 'Creates guest environment variables with paths to projects.'
-  spec.homepage      = ''
+  spec.summary       = 'Vagrant plugin that creates environment variables with paths to Rubymine projects on guest machine.'
+  spec.description   = 'Creates environment variables with paths to Rubymine projects.'
+  spec.homepage      = 'https://github.com/bjarosze/vagrant-rubymine'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
