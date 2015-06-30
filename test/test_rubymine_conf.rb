@@ -5,7 +5,7 @@ class RubymineConfTest < Test::Unit::TestCase
   TEST_CONFIG_PATH = 'test'
 
   def setup
-    @rubymine_conf = ::Vagrant::Rubymine::RubymineConf.new
+    @rubymine_conf = ::Vagrant::Rubymine::RubymineConf.new('test/.test_rubymine_config_dir')
     ENV['USERPROFILE'] = TEST_CONFIG_PATH
   end
 
@@ -16,13 +16,8 @@ class RubymineConfTest < Test::Unit::TestCase
   end
 
   def test_detecting_file
-    config_path = ::Vagrant::Rubymine::RubymineConf.new.instance_variable_get('@root_path')
+    config_path = @rubymine_conf.instance_variable_get('@root_path')
     assert Dir.exists?(config_path)
-  end
-
-  def test_parsing
-    file_path = 'test/.test_rubymine_config_dir/config/options/other.xml'
-    assert @rubymine_conf.send(:parse, file_path).kind_of?(Nokogiri::XML::Document)
   end
 
   def test_validation
@@ -39,7 +34,7 @@ class RubymineConfTest < Test::Unit::TestCase
     assert_equal 'C:\\Users\\Bartosz\\Development\\workspace\\merca', project_paths['merca']
   end
 
-  def test_normalization_of_project_name
+  def test_normalization
     normalized_project_name = @rubymine_conf.send(:normalize_project_name, 'test-project')
     assert_equal 'test_project', normalized_project_name
   end
