@@ -29,12 +29,13 @@ module Vagrant
 
       def setup
         bash_profile = BashProfile.new(PROFILE_PATH)
+        bash_profile.create_profile
 
         export_commands.each do |command|
           bash_profile.add_command(command)
         end
 
-        bash_profile.execute do |command|
+        bash_profile.apply do |command|
           sudo(command)
         end
 

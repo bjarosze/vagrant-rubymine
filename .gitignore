@@ -16,3 +16,4 @@ mkmf.log
 .editorconfig
 Vagrantfile
 /.vagrant/
+login_to_vagrant.sh
